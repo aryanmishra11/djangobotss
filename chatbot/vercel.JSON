@@ -9,5 +9,10 @@
             "src":"/(.*)",
             "dest":"chatbot/wsgi.py"
         }
+    ],
+    "rewrites":[
+        {
+            "source":"/(.*)","destination":"/"
+        }
     ]
 }
