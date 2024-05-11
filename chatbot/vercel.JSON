@@ -1,6 +1,6 @@
 {
     "builds":[{
-        "src":"chatbot/wsgi.py",
+        "src":"/",
         "use":"@vercel/python",
         "config":{"maxLambdaSize":"15mb","runtime":"python3.9"}
     }],
