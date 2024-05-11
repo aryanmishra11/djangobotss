@@ -1,19 +1,19 @@
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
+import google.generativeai as genai
+genai.configure(api_key=os.getenv("GOOGLE_APIKEY"))
+
 from django.shortcuts import render, reverse
 from django.contrib.auth.decorators import login_required
 from .models import ChatBot
 from django.http import HttpResponseRedirect, JsonResponse
-import google.generativeai as genai
 
-import os
-from pathlib import Path
-from dotenv import load_dotenv
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(os.path.join(BASE_DIR,'.env'))
-import google.generativeai as genai
-genai.configure(api_key=os.getenv("GOOGLE_APIKEY"))
+
 # Create your views here.
 # add here to your generated API key
+
 
 
 @login_required
@@ -42,4 +42,3 @@ def chat(request):
     user = request.user
     chats = ChatBot.objects.filter(user=user)
     return render(request, "chat_bot.html", {"chats": chats})
-
